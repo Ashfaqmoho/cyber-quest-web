@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="login.css">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.cdnfonts.com/css/brother-garage-sans" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li class="logo"><img class="img-logo" src="img/Cyber_Quest_GameLogo.png" alt="logo"></li>
+            <div class="nav-links">
+                <li><button class="button" data-text="Awesome">
+                        <span class="actual-text">&nbsp;ABOUT&nbsp;</span>
+                        <span aria-hidden="true" class="hover-text">&nbsp;ABOUT&nbsp;</span>
+                    </button>
+                </li>
+                <li>
+                    <button class="button" data-text="Awesome" onclick="showLogin()">
+                        <span class="actual-text">&nbsp;LOGIN&nbsp;</span>
+                        <span aria-hidden="true" class="hover-text">&nbsp;LOGIN&nbsp;</span>
+                    </button>
+                </li>
+                <li><button class="button" data-text="Awesome" onclick="showRegister()">
+                        <span class="actual-text">&nbsp;REGISTER&nbsp;</span>
+                        <span aria-hidden="true" class="hover-text">&nbsp;REGISTER&nbsp;</span>
+                    </button>
+                </li>
+            </div>
+        </ul>
+    </nav>
+
+
+    <div class="main">
+        <div class="layer-blur"></div>
+        <img class="image-gradient" src="img/gradient.png" alt="img">
+        <img class="image-gradient left" src="img/gradient.png" alt="img">
+
+        <div class="left">
+            <!-- Login Card -->
+            <div class="card" id="loginCard">
+                <h2>LOGIN</h2>
+                <div class="input-box">
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="login_username" name="login_username" placeholder="Enter Username"
+                            required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="login_password" name="login_password" placeholder="Enter Password"
+                            required>
+                    </div>
+                </div>
+                <div aria-label="User Login Button" tabindex="0" role="button" class="user-profile">
+                    <div class="user-profile-inner">
+                        <p>Login</p>
+                    </div>
+                </div>
+
+                <button class="switch-btn" onclick="showRegister()"><span>Don't have account? Register</span>
+                    <svg width="15px" height="10px" viewBox="0 0 13 10">
+                        <path d="M1,5 L11,5"></path>
+                        <polyline points="8 1 12 5 8 9"></polyline>
+                    </svg></button>
+            </div>
+
+            <!-- Register Card -->
+            <div class="card" id="registerCard">
+                <h2>REGISTER</h2>
+                <div class="input-box">
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="register_name" name="register_name" placeholder="Enter Full Name"
+                            required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-calendar"></i>
+                        <input type="number" id="register_age" name="register_age" placeholder="Enter Age" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="register_username" name="register_username" placeholder="Enter Username"
+                            required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="register_password" name="register_password"
+                            placeholder="Enter Password" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="register_confirm_password" name="register_confirm_password"
+                            placeholder="Confirm Password" required>
+                    </div>
+                </div>
+                <div aria-label="User Login Button" tabindex="0" role="button" class="user-profile">
+                    <div class="user-profile-inner">
+                        <p>Register</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="right">
+            <h1>Cyber Quest</h1>
+            <spline-viewer class="animate-robot"
+                url="https://prod.spline.design/6TazNpGLAP3cp-x7/scene.splinecode"></spline-viewer>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.77/build/spline-viewer.js"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

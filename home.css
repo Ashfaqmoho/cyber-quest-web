@@ -1,0 +1,68 @@
+.home {
+    display: flex;
+
+    justify-content: space-evenly;
+    align-items: stretch;
+    height: 90vh;
+    width: 95%;
+    padding: 0 5%;
+    background: rgba(255, 255, 255, .1);
+    border: 2px solid rgba(255, 255, 255, .2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(50px);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #fff;
+    padding: 40px 35px 55px;
+
+    margin-top: -5px;
+}
+
+/* Table Container */
+table {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Table Header */
+th {
+    background: linear-gradient(90deg, #4e73df, #1e3d8f);
+    color: white;
+    padding: 12px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Table Body Cells */
+td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 14px;
+    background-color: #f8f9fc;
+    color: #4e73df;
+}
+
+/* Hover Effect on Rows */
+tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.3s ease;
+}
+
+/* Zebra Striping for Rows */
+tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+/* Table Borders */
+th,
+td {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Hover Effect on Cells */
+td:hover {
+    background-color: #e3e9f3;
+    cursor: pointer;
+}

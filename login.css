@@ -1,0 +1,177 @@
+.card {
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border: none;
+    width: 80%;
+    height: 80%;
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0px 0px 10px 2px #13060f;
+    border-radius: 20px;
+}
+
+h2 {
+    font-size: 40px;
+    color: #5CE0E5;
+    text-align: center;
+    margin-top: 10px;
+    font-family: Poppins;
+    letter-spacing: 1px;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.input-field {
+    width: 140%;
+    height: 50px;
+    position: relative;
+}
+
+.input-field input {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, .2);
+    outline: none;
+    font-size: 16px;
+    color: #fff;
+    border-radius: 6px;
+    padding: 12px 15px 12px 45px;
+}
+
+::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.input-field i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.user-profile {
+    width: 151px;
+    height: 61px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    background: linear-gradient(to bottom right,
+            #2e8eff 0%,
+            rgba(46, 142, 255, 0) 30%);
+    background-color: rgba(46, 142, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -10px;
+}
+
+.user-profile:hover,
+.user-profile:focus {
+    background-color: rgba(46, 142, 255, 0.7);
+    box-shadow: 0 0 10px rgba(46, 142, 255, 0.5);
+    outline: none;
+}
+
+.user-profile-inner {
+    width: 147px;
+    height: 57px;
+    border-radius: 13px;
+    background-color: #1a1a1a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.user-profile-inner svg {
+    width: 25px;
+    height: 25px;
+    fill: #fff;
+}
+
+.switch-btn {
+    position: relative;
+
+    padding: 12px 18px;
+    transition: all 0.2s ease;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.switch-btn:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 50px;
+    background: #13060f;
+    width: 45px;
+    height: 45px;
+    transition: all 0.3s ease;
+}
+
+.switch-btn span {
+    position: relative;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+}
+
+.switch-btn svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: #234567;
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+
+}
+
+.switch-btn:hover:before {
+    width: 100%;
+    background: #13060f;
+}
+
+.switch-btn:hover svg {
+    transform: translateX(0);
+}
+
+#loginCard {
+    display: flex;
+}
+
+#registerCard {
+    display: none;
+    height: 95%;
+}
+
+#registerCard h2 {
+    margin-top: 0px;
+}
+
+#registerCard .user-profile {
+    margin-top: 10px;
+}

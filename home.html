@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li class="logo"><img class="img-logo" src="img/Cyber_Quest_GameLogo.png" alt="logo"></li>
+            <div class="nav-links">
+                <li><button class="button" onclick="logoutUser()">Logout</button></li>
+            </div>
+        </ul>
+    </nav>
+
+    <div class="home">
+
+        <div id="user-details">
+            <h2>Welcome to Cyber Quest</h2>
+            <h3 id="username"></h3>
+            <p id="score"></p>
+            <p id="age"></p>
+        </div>
+
+        <div>
+
+            <!-- Scoreboard Table -->
+            <h3>Scoreboard</h3>
+            <table id="scoreboard-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="scoreboard-body">
+                    <!-- Table rows will be dynamically populated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Fetch the username from localStorage
+        const username = localStorage.getItem("username");
+
+        // Check if the username exists in localStorage
+        if (!username) {
+            alert("You are not logged in. Redirecting to login page...");
+            window.location.href = "index.html";  // Redirect to login page if no username found
+        } else {
+            console.log("User is logged in with username:", username);
+            fetchUserDetails(username);  // Fetch user details based on the username
+            fetchScoreboard();  // Fetch the scoreboard data
+        }
+
+        // Function to fetch user details from the backend
+        function fetchUserDetails(username) {
+            fetch(`http://localhost:3000/api/get-user-details?username=${username}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Display user details on the page
+                    document.getElementById('username').innerHTML = `Welcome, ${data.name}!`;
+                    document.getElementById('score').innerHTML = `Score: ${data.score}`;
+                    document.getElementById('age').innerHTML = `Age: ${data.age}`;
+                })
+                .catch(error => {
+                    console.error('Error fetching user details:', error);
+                    alert('Failed to fetch user details. Please try again later.');
+                });
+        }
+
+        // Function to fetch and display the scoreboard from the backend
+        function fetchScoreboard() {
+            fetch("http://localhost:3000/api/get-scoreboard")
+                .then(response => response.json())
+                .then(data => {
+                    const scoreboardBody = document.getElementById("scoreboard-body");
+                    scoreboardBody.innerHTML = '';  // Clear previous scoreboard
+
+                    data.forEach(user => {
+                        const row = document.createElement("tr");
+                        const nameCell = document.createElement("td");
+                        const scoreCell = document.createElement("td");
+
+                        nameCell.textContent = user.name;
+                        scoreCell.textContent = user.score;
+
+                        row.appendChild(nameCell);
+                        row.appendChild(scoreCell);
+                        scoreboardBody.appendChild(row);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error fetching scoreboard:', error);
+                    alert('Failed to fetch scoreboard. Please try again later.');
+                });
+        }
+
+        // Function to handle logout
+        function logoutUser() {
+            localStorage.removeItem("username");  // Remove username from localStorage
+            localStorage.removeItem("token");  // Remove token from localStorage
+            alert("Logged out successfully!");
+            window.location.href = "index.html";  // Redirect to login page
+        }
+    </script>
+</body>
+
+</html>
